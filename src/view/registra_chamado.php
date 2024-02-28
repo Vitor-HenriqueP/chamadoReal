@@ -16,7 +16,7 @@ require_once "../../validador_acesso.php";
 
 
 	//abrindo o arquivo
-	$arquivo = fopen('../../arquivo.hd', 'a');
+	$arquivo = fopen('../../arquivo.txt', 'a');
 	//escrevendo o texto
 	fwrite($arquivo, $texto);
 	//fechando o arquivo

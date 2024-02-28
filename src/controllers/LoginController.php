@@ -13,11 +13,14 @@ class LoginController{
         ];
     }
     public function autenticar($email, $password){
+        $email = trim($email);
+        $password = trim($password);
+    
         foreach($this->users as $user){
-            if(($user->email == $email) && ($user->password== $password)){
+            if(($user->email == $email) && $user->verificarSenha($password)){
                 $_SESSION['autenticar'] = 'SIM';
-                $_SESSION['id']= $user->id;
-                $_SESSION['profile_id']= $user->profile_id;
+                $_SESSION['id'] = $user->id;
+                $_SESSION['profile_id'] = $user->profile_id;
                 header('Location: ../chamadoReal/src/view/home.php');
                 exit;
             }
@@ -25,6 +28,7 @@ class LoginController{
         $_SESSION['autenticar'] = 'NAO';
         header('Location: index.php?login=erro');
     }
+    
 }
 
 

@@ -69,7 +69,7 @@ fclose($arquivo);
                   $chamado_dados = explode('#', $chamado);
 
                   //
-                  if($_SESSION['perfil_id'] == 2) {
+                  if($_SESSION['profile_id'] == 2) {
                     //só vamos exibir o chamado, se ele foi criado pelo usuário
                     if($_SESSION['id'] != $chamado_dados[0]) {
                       continue;
